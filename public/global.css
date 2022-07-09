@@ -1,0 +1,76 @@
+:root {
+  --primary: #44f1a6;
+  --background: #000000;
+  --card-background: #050505;
+  --button-background: #161616;
+  --divider: #666666;
+  --white: #ffffff;
+}
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: "Fira Mono";
+  font-style: normal;
+}
+
+body {
+  background-color: var(--background);
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Fira Mono", monospace;
+}
+
+p {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: -0.05em;
+  color: var(--white);
+  margin: 0px;
+  text-align: justify;
+}
+
+h1 {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.05em;
+  color: var(--primary);
+  margin: 0px;
+}
+
+/* navigation buttons */
+h2 {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.05em;
+  color: var(--white);
+  margin: 0px;
+}
+.nav-button:hover {
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+input {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4px 12px;
+  background: var(--background);
+  border: 1px solid var(--button-background);
+  color: var(--primary);
+  font-family: inherit;
+}
