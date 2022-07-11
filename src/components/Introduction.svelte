@@ -15,15 +15,32 @@
     propose new game ideas or bring ideas into mini-games to be published here.
   </p>
   <div style="height:32px" />
-  <Button icon="forum.svg" title="forum page" on:clicked={clicked} />
+  <a href="https://discourse.com" target="_blank">
+    <Button icon="forum.svg" title="forum page" on:clicked={clicked} />
+  </a>
   <div style="height:12px" />
-  <Button icon="twitter.svg" title="twitter page" on:clicked={clicked} />
+  <a href="https://twitter.com/deadlydotgames" target="_blank">
+    <Button icon="twitter.svg" title="twitter page" on:clicked={clicked} />
+  </a>
   <div style="height:12px" />
-  <Button icon="design-system.svg" title="design system" on:clicked={clicked} />
+  <a href="https://figma.com" target="_blank">
+    <Button
+      icon="design-system.svg"
+      title="design system"
+      on:clicked={clicked}
+    />
+  </a>
   <div style="height:12px" />
-  <Button icon="github.svg" title="web application" on:clicked={clicked} />
+  <a href="https://github.com/deadly-games/deadly-games-app" target="_blank">
+    <Button icon="github.svg" title="web application" on:clicked={clicked} />
+  </a>
   <div style="height:12px" />
-  <Button icon="github.svg" title="cairo contracts" on:clicked={clicked} />
+  <a
+    href="https://github.com/deadly-games/deadly-games-starknet"
+    target="_blank"
+  >
+    <Button icon="github.svg" title="cairo contracts" on:clicked={clicked} />
+  </a>
   <div style="height:32px" />
   <h1>who dat?</h1>
   <div style="height:12px" />
@@ -32,11 +49,17 @@
     developer studio focused on cryptography and decentralized applications.
   </p>
   <div style="height:32px" />
-  <Button icon="external-link.svg" title="web page" on:clicked={clicked} />
+  <a href="https://decoded-labs.com" target="_blank">
+    <Button icon="external-link.svg" title="web page" on:clicked={clicked} />
+  </a>
   <div style="height:12px" />
-  <Button icon="twitter.svg" title="twitter page" on:clicked={clicked} />
+  <a href="https://twitter.com/decoded_labs" target="_blank">
+    <Button icon="twitter.svg" title="twitter page" on:clicked={clicked} />
+  </a>
   <div style="height:12px" />
-  <Button icon="github.svg" title="git page" on:clicked={clicked} />
+  <a href="https://github.com/decoded-labs" target="_blank">
+    <Button icon="github.svg" title="git page" on:clicked={clicked} />
+  </a>
 </main>
 
 <style>
