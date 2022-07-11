@@ -41,7 +41,11 @@
   >
     <Button icon="github.svg" title="cairo contracts" on:clicked={clicked} />
   </a>
-  <div style="height:32px" />
+  <div style="height:12px" />
+  <a href="https://goerli-faucet.com" target="_blank">
+    <Button icon="faucet.svg" title="goerli faucet" on:clicked={clicked} />
+  </a>
+  <div style="height:48px" />
   <h1>who dat?</h1>
   <div style="height:12px" />
   <p>
@@ -67,5 +71,6 @@
     width: 360px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
   }
 </style>
