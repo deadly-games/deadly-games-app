@@ -1,6 +1,12 @@
-<!-- <script lang="ts">
-  import { connectWallet } from "../stores/Network";
-</script> -->
+<script>
+  import {
+    connectWallet,
+    disconnectWallet,
+    isConnected,
+    networkProvider,
+    wrongNetwork,
+  } from "../stores/network";
+</script>
 
 <div style="height: 24px" />
 <main>
@@ -12,12 +18,21 @@
     <h2 class="nav-button">docs</h2>
   </div>
   <div class="network">
-    <h2 class="nav-button">starknet</h2>
-    <img src="images/icons/caret-down.svg" alt="" />
+    <h2 class="nav-button">
+      {$wrongNetwork ? "switch to goerli" : "goerli testnet"}
+    </h2>
+    <!-- <img src="images/icons/caret-down.svg" alt="" /> -->
     <div style="width: 8px" />
-    <h2>|</h2>
+    <h2>{$wrongNetwork ? "and ->" : "|"}</h2>
     <div style="width: 8px" />
-    <h2 class="nav-button">connect</h2>
+    <h2
+      class="nav-button"
+      on:click={$isConnected ? disconnectWallet : connectWallet}
+    >
+      {$isConnected
+        ? $networkProvider.selectedAddress.substring(0, 6)
+        : "connect"}
+    </h2>
   </div>
 </main>
 <div style="height: 48px" />
