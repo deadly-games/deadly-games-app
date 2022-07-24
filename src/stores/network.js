@@ -15,7 +15,6 @@ export const connectWallet = async () => {
       theme: "dark",
     },
   });
-  console.log(starknet);
   await starknet?.enable();
   networkProvider.set(starknet);
   if (starknet?.provider.chainId == "0x534e5f474f45524c49") {
