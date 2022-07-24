@@ -19,7 +19,7 @@
     "0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7";
 
   let amount;
-  $: bill = amount ? amount * 0.08 : 0;
+  $: bill = amount ? amount * 0.01 : 0;
   // $: if ($isConnected) {
   //   fetchData();
   // }
@@ -29,6 +29,9 @@
   setInterval(() => {
     fetchData();
   }, 10000);
+  onMount(() => {
+    fetchData();
+  });
 
   const fetchData = async () => {
     const greed = new Contract(
@@ -61,33 +64,43 @@
         ethers.utils.formatEther(allowance.remaining.low.toString())
       );
       console.log("allowance: ", allowance);
+      console.log("needed: ", 0.01 * parseInt(amount));
 
       if (allowance < 0.01 * parseInt(amount)) {
-        const approval = await token.approve(
-          greed_address_hex,
-          [number.toBN("1000000000000000000"), 0],
-          [
-            {
-              overrides: {
-                maxFee: "0",
+        try {
+          const approval = await token.approve(
+            greed_address_hex,
+            [number.toBN((0.01 * parseInt(amount)).toString()), 0],
+            [
+              {
+                overrides: {
+                  maxFee: "0",
+                },
               },
-            },
-          ]
-        );
+            ]
+          );
+          await $networkProvider.provider.waitForTransaction(approval);
+        } catch (e) {
+          console.log(e);
+        }
       }
-      const greed = new Contract(
-        // @ts-ignore
-        greed_abi,
-        greed_address_hex,
-        $networkProvider.account
-      );
-      await greed.greed(amount, [
-        {
-          overrides: {
-            maxFee: "0",
+      try {
+        const greed = new Contract(
+          // @ts-ignore
+          greed_abi,
+          greed_address_hex,
+          $networkProvider.account
+        );
+        await greed.greed(amount, [
+          {
+            overrides: {
+              maxFee: "0",
+            },
           },
-        },
-      ]);
+        ]);
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
 </script>
@@ -96,7 +109,7 @@
   <div style="height: 12px" />
   <p>
     greed consists of a smart vault who keeps track of many things. entrance to
-    the game (<span>0.08Ξ</span>) is with a ticket system that can be leveraged
+    the game (<span>0.01Ξ</span>) is with a ticket system that can be leveraged
     <span>50x</span>
     to raise your chances to <span>50%</span>.
   </p>
